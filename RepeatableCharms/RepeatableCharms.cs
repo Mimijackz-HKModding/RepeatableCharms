@@ -64,7 +64,7 @@ namespace RepeatableCharms
             new Nailmasters(),
             null, // jonis blessing
             null, // shape of unn
-            null, // hive blood
+            new Hiveblood(), // MISSING JONIS BLESSING SYNERGY
             null, // dream wielder
             new Dashmaster(),
             new Quickslash(),
