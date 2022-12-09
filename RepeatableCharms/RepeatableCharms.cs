@@ -40,7 +40,7 @@ namespace RepeatableCharms
             null, // wayward compass
             new Grubsong(),
             new StalwartShell(),
-            new BaldurShell(), // IN DEVELOPMENT
+            new BaldurShell(),
             null, // fury of the fallen
             new QuickFocus(),
             new LifebloodHeart(),
@@ -69,7 +69,7 @@ namespace RepeatableCharms
             new Dashmaster(),
             new Quickslash(),
             new SpellTwister(),
-            null, // deep focus
+            new DeepFocus(), // MISSING SPORE SHROOM SYNERGY
             null, // grubberflys elegy
             null, // kingsoul/void heart
             new Sprintmaster(),
