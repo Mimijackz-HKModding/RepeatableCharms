@@ -45,19 +45,19 @@ namespace RepeatableCharms
             new QuickFocus(),
             new LifebloodHeart(),
             new LifebloodCore(),
-            null, // defenders crest
-            null, // flukenest
+            new DefendersCrest(), // MISSING SYNERGYS
+            new Flukenest(), // MISSING SYNERGYS
             null, // thorns of agony
             new MarkOfPride(),
             null, // steady body
             null, // heavy blow
-            null, // sharp shadow
+            new SharpShadow(),
             null, // spore shroom
             new Longnail(),
             null, // shaman stone
             new SoulCatcher(),
             new SoulEater(),
-            null, // glowing womb
+            new GlowingWomb(), // MISSING SYNERGYS
             new Heart(),
             new Greed(),
             new Strength(),
@@ -65,18 +65,19 @@ namespace RepeatableCharms
             null, // jonis blessing
             null, // shape of unn
             new Hiveblood(), // MISSING JONIS BLESSING SYNERGY
-            null, // dream wielder
+            new DreamWielder(), // MISSING SYNERGYS
             new Dashmaster(),
             new Quickslash(),
             new SpellTwister(),
             new DeepFocus(), // MISSING SPORE SHROOM SYNERGY
             null, // grubberflys elegy
-            null, // kingsoul/void heart
+            new Kingsoul(), // MISSING VOIDHEART
             new Sprintmaster(),
             new Dreamshield(), // MISSING DREAMWIELDER SYNERGY
             new Weaversong(),
-            null, // grimmchild/carefree melody
+            new Grimmchild(),
         };
+        private int[] prevCharms = new int[41];
         public override string GetVersion() => GetType().Assembly.GetName().Version.ToString();
 
         public RepeatableCharmsMod() : base("Repeatable Charms")
@@ -112,46 +113,18 @@ namespace RepeatableCharms
 
             for (int i = 0; i < Charms.Length; i++)
             {
-                if (Charms[i] == null || charmEquipped[i] == 0) continue;
+                if (Charms[i] == null) continue;
+                if (charmEquipped[i] == 0)
+                {
+                    if (prevCharms[i] != 0) Charms[i].Unequip(data, controller, charmEquipped);
 
+                    continue;
+                }
                 //Log($"found possible charm: {i}, which is equipped {charmEquipped[i]} times");
                 Charms[i].OnCharm(data, controller, charmEquipped);
             }
 
-            /*    Moved to inherited classes of CharmRepeat
-            //Grubsong
-            if (GetCharmAmount(3) > 0)
-            {
-                data.equippedCharm_3 = true;
-                controller.GRUB_SOUL_MP = GetCharmAmount(3) * 15;
-            }
-            //Quickslash
-            if (GetCharmAmount(32) > 0)
-            {
-                data.equippedCharm_32 = true;
-                controller.ATTACK_COOLDOWN_TIME_CH = Mathf.Pow((float)25 / 41, GetCharmAmount(32)) * 0.41f;
-                controller.ATTACK_DURATION_CH = Mathf.Pow((float)28 / 35, GetCharmAmount(32)) * 0.35f;
-            }
-            //Dashmaster
-            if (GetCharmAmount(31) > 0)
-            {
-                data.equippedCharm_31 = true;
-                controller.DASH_COOLDOWN_CH = Mathf.Pow((float)4 / 6, GetCharmAmount(31)) * 0.6f;
-            }
-            //Nailmaster's Glory
-            if (GetCharmAmount(26) > 0)
-            {
-                data.equippedCharm_26 = true;
-                controller.NAIL_CHARGE_TIME_CHARM = Mathf.Pow((float)75 / 135, GetCharmAmount(26)) * 1.35f;
-            }
-            //Sprintmaster
-            if (GetCharmAmount(37) > 0)
-            {
-                data.equippedCharm_37 = true;
-                controller.RUN_SPEED_CH = GetCharmAmount(37) * 1.7f + 8.3f;
-                controller.RUN_SPEED_CH_COMBO = GetCharmAmount(37) * (1.7f + (GetCharmAmount(31) * 1.5f)) + 8.3f; //Dashmaster-Sprintmaster combo
-            }
-            */
+            prevCharms = charmEquipped;
         }
 
         //Apparently the vanilla notch calculation calculates repeating charms as 0 cost so i just changed that calculation
@@ -202,8 +175,7 @@ namespace RepeatableCharms
             }
         }
 
-        [System.Obsolete("Use an inherited class of CharmRepeat instead")]
-        public int GetCharmAmount(int id)
+        public static int GetCharmAmount(int id)
         {
             int slots = 0;
             foreach (int charm in PlayerData.instance.equippedCharms)
