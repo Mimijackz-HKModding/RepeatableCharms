@@ -54,7 +54,7 @@ namespace RepeatableCharms
             new SharpShadow(),
             new SporeShroom(),
             new Longnail(),
-            null, // shaman stone
+            new ShamanStone(), // UNDER DEVELOPMENT
             new SoulCatcher(),
             new SoulEater(),
             new GlowingWomb(), // MISSING SYNERGYS
