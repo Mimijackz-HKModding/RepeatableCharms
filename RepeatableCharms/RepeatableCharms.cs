@@ -48,21 +48,21 @@ namespace RepeatableCharms
             new DefendersCrest(), // MISSING SYNERGYS
             new Flukenest(), // MISSING SYNERGYS
             null, // thorns of agony
-            new MarkOfPride(),
+            new MarkOfPride(), // MISSING SYNERGYS
             null, // steady body
-            null, // heavy blow
+            new HeavyBlow(),
             new SharpShadow(),
-            null, // spore shroom
+            new SporeShroom(),
             new Longnail(),
             null, // shaman stone
             new SoulCatcher(),
             new SoulEater(),
             new GlowingWomb(), // MISSING SYNERGYS
-            new Heart(),
-            new Greed(),
-            new Strength(),
+            new Heart(), // fragile and unbreakable
+            new Greed(), // fragile and unbreakable
+            new Strength(), // fragile and unbreakable
             new Nailmasters(),
-            null, // jonis blessing
+            new JonisBlessing(), // MISSING HIVEBLOOD SYNERGY
             null, // shape of unn
             new Hiveblood(), // MISSING JONIS BLESSING SYNERGY
             new DreamWielder(), // MISSING SYNERGYS
@@ -75,7 +75,7 @@ namespace RepeatableCharms
             new Sprintmaster(),
             new Dreamshield(), // MISSING DREAMWIELDER SYNERGY
             new Weaversong(),
-            new Grimmchild(),
+            new Grimmchild(), // and carefree melody
         };
         private int[] prevCharms = new int[41];
         public override string GetVersion() => GetType().Assembly.GetName().Version.ToString();

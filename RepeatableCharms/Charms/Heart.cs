@@ -22,9 +22,6 @@ namespace RepeatableCharms.Charms
 
             if (data.brokenCharm_23) return;
 
-            //TODO: add more masks to the HUD
-            
-
             controller.playerData.SetInt("maxHealth", controller.playerData.GetInt("maxHealthBase") + (charms[23] * 2));
 
 
