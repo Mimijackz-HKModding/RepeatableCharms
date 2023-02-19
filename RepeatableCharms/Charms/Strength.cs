@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace RepeatableCharms.Charms
 {
-    internal class StrengthFloatMultiply : FsmStateAction
+    internal class StrengthFloatMultiply : FsmStateAction // future mimijackz here, WHY DIDN'T I JUST USE AN FSMFLOAT VARIABLE INSTEAD OF THIS STUPID CUSTOM CLASS
     {
         public FsmFloat floatVariable;
 
@@ -23,7 +23,8 @@ namespace RepeatableCharms.Charms
 
         public override void OnEnter()
         {
-            floatVariable.Value *= Mathf.Pow(multiplyBy.Value, (RepeatableCharmsMod.Instance.Charms[25] as Strength).charmAmount);
+            // floatVariable.Value *= Mathf.Pow(multiplyBy.Value, (RepeatableCharmsMod.Instance.Charms[25] as Strength).charmAmount);
+            floatVariable.Value *= 1 + ((multiplyBy.Value - 1) * (RepeatableCharmsMod.Instance.Charms[25] as Strength).charmAmount);
 
             Finish();
         }
@@ -56,7 +57,7 @@ namespace RepeatableCharms.Charms
             orig(self);
             if (self.FsmName == "Set Slash Damage")
             {
-                FloatMultiply prevAction = self.FsmStates[4].Actions[2] as FloatMultiply; //404 needs to be changed to whatever the state of "glass attack modifier" is
+                FloatMultiply prevAction = self.FsmStates[4].Actions[2] as FloatMultiply;
 
                 StrengthFloatMultiply newAction = new StrengthFloatMultiply();
                 newAction.floatVariable = prevAction.floatVariable;

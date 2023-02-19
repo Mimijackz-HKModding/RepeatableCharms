@@ -33,50 +33,7 @@ namespace RepeatableCharms
             }
         }
 
-        public CharmRepeat[] Charms = new CharmRepeat[]
-        {
-            null, //this is the '0' which is a nonexistent charm, so...
-            null, // gathering swarm
-            null, // wayward compass
-            new Grubsong(),
-            new StalwartShell(),
-            new BaldurShell(),
-            null, // fury of the fallen
-            new QuickFocus(),
-            new LifebloodHeart(),
-            new LifebloodCore(),
-            new DefendersCrest(), // MISSING SYNERGYS
-            new Flukenest(), // MISSING SYNERGYS
-            null, // thorns of agony
-            new MarkOfPride(), // MISSING SYNERGYS
-            null, // steady body
-            new HeavyBlow(),
-            new SharpShadow(),
-            new SporeShroom(),
-            new Longnail(),
-            new ShamanStone(), // UNDER DEVELOPMENT
-            new SoulCatcher(),
-            new SoulEater(),
-            new GlowingWomb(), // MISSING SYNERGYS
-            new Heart(), // fragile and unbreakable
-            new Greed(), // fragile and unbreakable
-            new Strength(), // fragile and unbreakable
-            new Nailmasters(),
-            new JonisBlessing(), // MISSING HIVEBLOOD SYNERGY
-            null, // shape of unn
-            new Hiveblood(), // MISSING JONIS BLESSING SYNERGY
-            new DreamWielder(), // MISSING SYNERGYS
-            new Dashmaster(),
-            new Quickslash(),
-            new SpellTwister(),
-            new DeepFocus(), // MISSING SPORE SHROOM SYNERGY
-            null, // grubberflys elegy
-            new Kingsoul(), // MISSING VOIDHEART
-            new Sprintmaster(),
-            new Dreamshield(), // MISSING DREAMWIELDER SYNERGY
-            new Weaversong(),
-            new Grimmchild(), // and carefree melody
-        };
+        public CharmRepeat[] Charms = null;
         private int[] prevCharms = new int[41];
         public override string GetVersion() => GetType().Assembly.GetName().Version.ToString();
 
@@ -85,10 +42,61 @@ namespace RepeatableCharms
             _instance = this;
         }
 
+        void InitializeCharms()
+        {
+            Charms = new CharmRepeat[]
+            {
+                null, //this is the '0' which is a nonexistent charm, so...
+                new GatheringSwarm(),
+                null, // wayward compass
+                new Grubsong(),
+                new StalwartShell(),
+                new BaldurShell(),
+                new Fury(), // short for fury of the fallen fyi, MISSING SYNERGYS
+                new QuickFocus(),
+                new LifebloodHeart(),
+                new LifebloodCore(),
+                new DefendersCrest(), // MISSING SYNERGYS
+                new Flukenest(), // MISSING SYNERGYS
+                null, // thorns of agony
+                new MarkOfPride(), // MISSING SYNERGYS
+                null, // steady body
+                new HeavyBlow(),
+                new SharpShadow(),
+                new SporeShroom(),
+                new Longnail(),
+                new ShamanStone(), // UNDER DEVELOPMENT
+                new SoulCatcher(),
+                new SoulEater(),
+                new GlowingWomb(), // MISSING SYNERGYS
+                new Heart(), // fragile and unbreakable
+                new Greed(), // fragile and unbreakable
+                new Strength(), // fragile and unbreakable
+                new Nailmasters(),
+                new JonisBlessing(), // MISSING HIVEBLOOD SYNERGY
+                null, // shape of unn
+                new Hiveblood(), // MISSING JONIS BLESSING SYNERGY
+                new DreamWielder(), // MISSING SYNERGYS
+                new Dashmaster(),
+                new Quickslash(),
+                new SpellTwister(),
+                new DeepFocus(), // MISSING SPORE SHROOM SYNERGY
+                null, // grubberflys elegy
+                new Kingsoul(), // MISSING VOIDHEART
+                new Sprintmaster(),
+                new Dreamshield(), // MISSING DREAMWIELDER SYNERGY
+                new Weaversong(),
+                new Grimmchild(), // and carefree melody
+            };
+        }
+
         public override void Initialize(Dictionary<string, Dictionary<string, GameObject>> preloadedObjects)
         {
             Log("Initializing");
+            Log("Initializing charms");
+            InitializeCharms();
 
+            Log("Adding Hooks");
             On.PlayMakerFSM.OnEnable += OnFSM;
             ModHooks.CharmUpdateHook += OnCharm;
             On.PlayerData.CountCharms += NotchCalculation;
