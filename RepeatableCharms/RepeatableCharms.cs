@@ -49,7 +49,7 @@ namespace RepeatableCharms
                 null, //this is the '0' which is a nonexistent charm, so...
                 new GatheringSwarm(),
                 null, // wayward compass
-                new Grubsong(),
+                new Grubsong(), // MISSING CHARM SYNERGYS
                 new StalwartShell(),
                 new BaldurShell(),
                 new Fury(), // short for fury of the fallen fyi, MISSING SYNERGYS
@@ -65,7 +65,7 @@ namespace RepeatableCharms
                 new SharpShadow(),
                 new SporeShroom(),
                 new Longnail(),
-                new ShamanStone(), // UNDER DEVELOPMENT
+                new ShamanStone(), // MISSING SYNERGYS
                 new SoulCatcher(),
                 new SoulEater(),
                 new GlowingWomb(), // MISSING SYNERGYS
@@ -73,10 +73,10 @@ namespace RepeatableCharms
                 new Greed(), // fragile and unbreakable
                 new Strength(), // fragile and unbreakable
                 new Nailmasters(),
-                new JonisBlessing(), // MISSING HIVEBLOOD SYNERGY
+                new JonisBlessing(),
                 null, // shape of unn
-                new Hiveblood(), // MISSING JONIS BLESSING SYNERGY
-                new DreamWielder(), // MISSING SYNERGYS
+                new Hiveblood(),
+                new DreamWielder(),
                 new Dashmaster(),
                 new Quickslash(),
                 new SpellTwister(),
@@ -84,7 +84,7 @@ namespace RepeatableCharms
                 null, // grubberflys elegy
                 new Kingsoul(), // MISSING VOIDHEART
                 new Sprintmaster(),
-                new Dreamshield(), // MISSING DREAMWIELDER SYNERGY
+                new Dreamshield(),
                 new Weaversong(),
                 new Grimmchild(), // and carefree melody
             };
