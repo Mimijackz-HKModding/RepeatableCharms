@@ -14,11 +14,13 @@ namespace RepeatableCharms.Charms
         public new int charmID = 6;
 
         FsmFloat furyMultiplier = 1.75f;
+        FsmFloat elegyMultiplier = 1.5f;
         public override void OnCharm(PlayerData data, HeroController controller, int[] charms)
         {
             data.equippedCharm_6 = true;
 
             furyMultiplier.Value = (0.75f * charms[6]) + 1;
+            elegyMultiplier.Value = (0.5f * charms[6]) + 1;
         }
 
         public Fury() : base()
@@ -43,6 +45,10 @@ namespace RepeatableCharms.Charms
             else if (self.FsmName == "nailart_damage")
             {
                 (self.FsmStates[1].Actions[1] as FloatMultiply).multiplyBy = furyMultiplier;
+            }
+            else if (self.FsmName == "Control" && self.name.StartsWith("Grubberfly Beam") && self.name.Contains(" R"))
+            {
+                (self.FsmStates[6].Actions[2] as FloatMultiply).multiplyBy = elegyMultiplier;
             }
         }
     }

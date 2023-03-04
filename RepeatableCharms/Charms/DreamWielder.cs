@@ -15,7 +15,8 @@ namespace RepeatableCharms.Charms
 
         private const float skippedTime = 0.5833f;
         private const float anticTime = 0.4167f;
-        private const float timeDecrease = skippedTime / (skippedTime + anticTime);
+        //private const float timeDecrease = skippedTime / (skippedTime + anticTime);
+        private const float timeDecrease = (1f / skippedTime) - (1f / (skippedTime + anticTime));
 
         private FsmFloat newAnticTime = anticTime;
         private bool dreamImpactReceiving = false;
@@ -25,7 +26,8 @@ namespace RepeatableCharms.Charms
             data.equippedCharm_30 = true;
 
             charmAmount = charms[30];
-            newAnticTime.Value = anticTime * Mathf.Pow(timeDecrease, charms[30] - 1);
+            //newAnticTime.Value = anticTime * Mathf.Pow(timeDecrease, charms[30] - 1);
+            newAnticTime.Value = 1f / ((timeDecrease * (charms[30] - 1)) + anticTime);
         }
         
         public DreamWielder() : base()

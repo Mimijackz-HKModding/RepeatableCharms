@@ -14,12 +14,14 @@ namespace RepeatableCharms.Charms
     {
         public new int charmID = 7;
 
-        const float MPDrainDecrease = (float)18 / 27;
+        //const float MPDrainDecrease = (float)18 / 27;
+        const float MPDrainDecrease = (1f / 0.594f) - (1f / 0.891f);
         public override void OnCharm(PlayerData data, HeroController controller, int[] charms)
         {
             data.equippedCharm_7 = true;
 
-            controller.spellControl.FsmVariables.GetFsmFloat("Time Per MP Drain CH").Value = Mathf.Pow(MPDrainDecrease, charms[7]) * 0.027f;
+            //controller.spellControl.FsmVariables.GetFsmFloat("Time Per MP Drain CH").Value = Mathf.Pow(MPDrainDecrease, charms[7]) * 0.027f;
+            controller.spellControl.FsmVariables.GetFsmFloat("Time Per MP Drain CH").Value = 1 / (MPDrainDecrease * charms[7] + (1f / 0.891f));
 
             // SLUG!!
             ModifySlugFSM(Array.Find(controller.spellControl.FsmStates, (m) => m.Name == "Slug Speed"), controller.spellControl, charms[7]);

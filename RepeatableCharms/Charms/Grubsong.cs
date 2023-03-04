@@ -13,6 +13,7 @@ namespace RepeatableCharms.Charms
         {
             data.equippedCharm_3 = true;
             controller.GRUB_SOUL_MP = charms[3] * 15;
+            controller.GRUB_SOUL_MP_COMBO = (charms[3] * 15) + (10 * charms[35]);
         }
     }
 }

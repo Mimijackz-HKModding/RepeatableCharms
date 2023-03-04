@@ -18,7 +18,7 @@ namespace RepeatableCharms.Charms
         {
             data.equippedCharm_10 = true;
 
-            emitFrequency.Value = Mathf.Pow(0.75f, charms[10]);
+            emitFrequency.Value = 0.75f / charms[10];
         }
         
         public DefendersCrest() : base()

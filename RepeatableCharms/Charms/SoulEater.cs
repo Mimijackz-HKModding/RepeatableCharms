@@ -30,7 +30,6 @@ namespace RepeatableCharms.Charms
 
             if (!playerData.equippedCharm_21) return amount;
 
-            Log("Eater soul gain");
             if (playerData.GetInt("MPCharge") < playerData.GetInt("maxMP"))
             {
                 amount -= 8;

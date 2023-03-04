@@ -42,7 +42,9 @@ namespace RepeatableCharms.Charms
             }
             else if (self.FsmName == "Control" && self.name.Contains("Knight Dung Cloud"))
             {
-                self.gameObject.GetComponent<DamageEffectTicker>().damageInterval = 0.2f / (charmAmount) / (dungAmount == 0 ? 1 : dungAmount);
+                if (self.transform.parent.name.Contains("Spell Fluke Dung")) return;
+
+                self.gameObject.GetComponent<DamageEffectTicker>().damageInterval = 0.2f / (charmAmount);
                 (self.FsmStates[4].Actions[1] as SetScale).x = deepScale;
                 (self.FsmStates[4].Actions[1] as SetScale).y = deepScale;
             }

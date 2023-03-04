@@ -49,26 +49,26 @@ namespace RepeatableCharms
                 null, //this is the '0' which is a nonexistent charm, so...
                 new GatheringSwarm(),
                 null, // wayward compass
-                new Grubsong(), // MISSING CHARM SYNERGYS
+                new Grubsong(),
                 new StalwartShell(),
                 new BaldurShell(),
-                new Fury(), // short for fury of the fallen fyi, MISSING SYNERGYS
+                new Fury(), // short for fury of the fallen fyi
                 new QuickFocus(),
                 new LifebloodHeart(),
                 new LifebloodCore(),
-                new DefendersCrest(), // MISSING SYNERGYS
-                new Flukenest(), // MISSING SYNERGYS
+                new DefendersCrest(),
+                new Flukenest(),
                 null, // thorns of agony
-                new MarkOfPride(), // MISSING SYNERGYS
+                new MarkOfPride(),
                 null, // steady body
-                new HeavyBlow(),
+                new HeavyBlow(), // MISSING ELEGY SYNERGY
                 new SharpShadow(),
                 new SporeShroom(),
                 new Longnail(),
-                new ShamanStone(), // MISSING SYNERGYS
+                new ShamanStone(),
                 new SoulCatcher(),
                 new SoulEater(),
-                new GlowingWomb(), // MISSING SYNERGYS
+                new GlowingWomb(),
                 new Heart(), // fragile and unbreakable
                 new Greed(), // fragile and unbreakable
                 new Strength(), // fragile and unbreakable
@@ -76,11 +76,11 @@ namespace RepeatableCharms
                 new JonisBlessing(),
                 null, // shape of unn
                 new Hiveblood(),
-                new DreamWielder(),
+                new DreamWielder(), // MISSING ESSENCE CHANCE CHANGE
                 new Dashmaster(),
                 new Quickslash(),
                 new SpellTwister(),
-                new DeepFocus(), // MISSING SPORE SHROOM SYNERGY
+                new DeepFocus(),
                 null, // grubberflys elegy
                 new Kingsoul(), // MISSING VOIDHEART
                 new Sprintmaster(),
@@ -93,6 +93,7 @@ namespace RepeatableCharms
         public override void Initialize(Dictionary<string, Dictionary<string, GameObject>> preloadedObjects)
         {
             Log("Initializing");
+
             Log("Initializing charms");
             InitializeCharms();
 

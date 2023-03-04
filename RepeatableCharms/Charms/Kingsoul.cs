@@ -11,7 +11,8 @@ namespace RepeatableCharms.Charms
     {
         public new int charmID = 36;
 
-        private FsmInt kingSoulIncrease = 4;
+        //private FsmInt kingSoulIncrease = 4;
+        private FsmFloat kingSoulWaitTime = 2f;
 
         private bool i_enabled = true;
         public override bool enabled 
@@ -29,7 +30,7 @@ namespace RepeatableCharms.Charms
         {
             data.equippedCharm_36 = true;
 
-            kingSoulIncrease.Value = charms[36] * 4;
+            kingSoulWaitTime.Value = 2f / (float)charms[36];
         }
 
         public Kingsoul() : base()
@@ -43,7 +44,8 @@ namespace RepeatableCharms.Charms
 
             if (self.FsmName == "White Charm")
             {
-                (self.FsmStates[5].Actions[0] as HutongGames.PlayMaker.Actions.SendMessageV2).functionCall.IntParameter = kingSoulIncrease;
+                //(self.FsmStates[5].Actions[0] as HutongGames.PlayMaker.Actions.SendMessageV2).functionCall.IntParameter = kingSoulIncrease;
+                (self.FsmStates[3].Actions[0] as HutongGames.PlayMaker.Actions.Wait).time = kingSoulWaitTime;
             }
         }
     }

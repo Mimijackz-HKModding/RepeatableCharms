@@ -29,7 +29,6 @@ namespace RepeatableCharms.Charms
             PlayerData playerData = PlayerData.instance;
 
             if (!playerData.equippedCharm_20) return amount;
-            Log("Catcher soul gain");
             if (playerData.GetInt("MPCharge") < playerData.GetInt("maxMP"))
             {
                 amount -= 3;

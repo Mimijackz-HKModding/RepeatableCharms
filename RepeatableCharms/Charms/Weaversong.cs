@@ -11,9 +11,15 @@ namespace RepeatableCharms.Charms
     internal class Weaversong : CharmRepeat
     {
         public new int charmID = 39;
+
+        FsmFloat speedMulti = 1.5f;
+        FsmInt soulGain = 3;
         public override void OnCharm(PlayerData data, HeroController controller, int[] charms)
         {
             data.equippedCharm_39 = true;
+
+            speedMulti.Value = 1 + (0.5f * charms[37]);
+            soulGain.Value = 3 * charms[3];
 
             PlayMakerFSM controlFSM = controller.transform.GetChild(13).gameObject.LocateMyFSM("Weaverling Control");
 
@@ -46,6 +52,23 @@ namespace RepeatableCharms.Charms
 
             spawnState.Actions = newActions.ToArray();
 
+        }
+        
+        public Weaversong() : base()
+        {
+            On.PlayMakerFSM.OnEnable += FsmEnable;
+        }
+
+        private void FsmEnable(On.PlayMakerFSM.orig_OnEnable orig, PlayMakerFSM self)
+        {
+            orig(self);
+
+            if (self.FsmName == "Control" && self.name.StartsWith("Weaverling"))
+            {
+                (self.FsmStates[30].Actions[2] as SetFloatValue).floatValue = speedMulti;
+            } else if (self.FsmName == "Attack" && self.transform.parent.name.StartsWith("Weaverling")) {
+                (self.FsmStates[10].Actions[1] as CallMethodProper).parameters[0] = new FsmVar() { Type = VariableType.Int, intValue = 3, NamedVar = soulGain };
+            }
         }
     }
 }

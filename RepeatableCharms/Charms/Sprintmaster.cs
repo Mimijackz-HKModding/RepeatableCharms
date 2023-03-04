@@ -14,7 +14,7 @@ namespace RepeatableCharms.Charms
             data.equippedCharm_37 = true;
 
             controller.RUN_SPEED_CH = charms[37] * 1.7f + 8.3f;
-            controller.RUN_SPEED_CH_COMBO = charms[37] * (1.7f + (charms[31] * 1.5f)) + 8.3f; //Dashmaster-Sprintmaster combo
+            controller.RUN_SPEED_CH_COMBO = (charms[37] * 1.7f) + (charms[31] * 1.5f) + 8.3f; //Dashmaster-Sprintmaster combo
         }
     }
 }

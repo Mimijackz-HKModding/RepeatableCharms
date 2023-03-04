@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using Modding;
+using System.Reflection;
 
 namespace RepeatableCharms.Charms
 {
@@ -19,6 +20,8 @@ namespace RepeatableCharms.Charms
             data.equippedCharm_13 = true;
 
             charmAmount = charms[13];
+
+            typeof(HeroController).GetField("MANTIS_CHARM_SCALE", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(controller, (0.35f * charms[13]) + 1);
         }
 
         public MarkOfPride() : base()
