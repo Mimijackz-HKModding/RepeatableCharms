@@ -61,7 +61,7 @@ namespace RepeatableCharms
                 null, // thorns of agony
                 new MarkOfPride(),
                 null, // steady body
-                new HeavyBlow(), // MISSING ELEGY SYNERGY
+                new HeavyBlow(),
                 new SharpShadow(),
                 new SporeShroom(),
                 new Longnail(),
@@ -76,12 +76,12 @@ namespace RepeatableCharms
                 new JonisBlessing(),
                 null, // shape of unn
                 new Hiveblood(),
-                new DreamWielder(), // MISSING ESSENCE CHANCE CHANGE
+                new DreamWielder(),
                 new Dashmaster(),
                 new Quickslash(),
                 new SpellTwister(),
                 new DeepFocus(),
-                null, // grubberflys elegy
+                new GrubberflysElegy(),
                 new Kingsoul(), // MISSING VOIDHEART
                 new Sprintmaster(),
                 new Dreamshield(),

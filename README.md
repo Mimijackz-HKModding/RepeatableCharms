@@ -7,4 +7,7 @@ Known bugs:
 - overcharm sometimes isn't visible, and i have no clue why that happens
 
 Possible bugs:
-- kingsoul might break when upgrading while having multiple equipped
+- kingsoul might break when upgrading while having multiple equipped, same with grimmchild
+
+Ideas:
+- more repeated charms -> more expensive charms
